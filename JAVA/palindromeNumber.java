@@ -25,7 +25,7 @@
         //loop 4 times: compare index[0] vs index[8] ; index[1] v index[7]; so on 
         //Convert from integer to string 
         //=> Length is odd : loop : ((length - 1)/2) times. Break the loop if false. 
-        //=> Length is even: loop (length / 2) times 
+        //=> Length is even: loop (length / 2) times. Break the loop if false.
         // If it's a one digit number => automatically true. 
         
 class Solution {
