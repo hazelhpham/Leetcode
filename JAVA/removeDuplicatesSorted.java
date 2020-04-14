@@ -1,53 +1,27 @@
+//Author : Hazel Pham 
+//Date : April 15th 2020
+// Source: https://leetcode.com/problems/remove-duplicates-from-sorted-array/ 
+//Description: Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
+//Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+
 class Solution {
     public int removeDuplicates(int[] nums) {
-
-/*
-Question 1: i can return the new length simply by : nếu chỉ cần return lại đúng length như method cần => dùng if số thứ i và số i+1 giống nhau => length-1;
-Submit xong lại không đúng, mặc dù length đúng. 
-Ví dụ :  
-Question 2: how the fuck can i remove the duplicates? I thought of putting all                  numbers of the array into an array list
-            or a vector which has the remove method already. 
-*/
-/*But lets try this new method i just learnt!!!! 
-With this method, i can get the length.
-Pseudocode: 
-    1st: if length == 0 => return 0 
-    pointer = 1;  
-    original = 0; 
-    loop starting from index 1 : 
-    if(nums[original]!= nums[index1]): 
-       move the position of original to [index1] 
-       nums[pointer] = nums[index1]
-       pointer++; 
-    *note: else: i+1 ; OG giữ nguyên; pointer giữ nguyên
-    
-    return pointer; 
-*/
         
-/* The idea is that ++a increments a and returns that value, while a++ returns a's value and then increments a.*/
-/*        
-    int length = nums.length;
-    if(length == 0 ) return 0;
-    
-    int original = nums[0];
-    int pointer = 1;
-    
-    for(int i = 1; i<length; i++){
-        if( nums[i] != original ){
-            original = nums[i]; //có nghĩa original sẽ bằng 3?! 
-            nums[pointer] = nums[i]; //
-            pointer++;
-        }
-    }
-        return pointer; 
+/* 
+- Pseudocode: 
+    if length of an array = 0 => return 0
+    loop from j = 1; i=0 : if arr[i] == arr[j] => keep i and increase j=j+1
+                           else increase i=i+1. the loop continues 
 */
-//OKAY the key of this exercise is: if arr[i] == arr[j] => you keep i and increase j.          
+ 
     int length = nums.length;
     if(length == 0 ) return 0;
     int i = 0;
     for (int j = 1; j<length; j++){
-        if(nums[j] == nums[i])
-               continue; 
+        if(nums[j] == nums[i]){
+               continue;
+        }    
         nums[++i] = nums[j];
         
     }    
